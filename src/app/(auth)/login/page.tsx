@@ -1,5 +1,5 @@
-import { AuthForm } from "@/components/auth-form";
+import {notFound} from 'next/navigation';
 
-export default function LoginPage() {
-  return <AuthForm type="login" />;
+export default function Page() {
+  notFound();
 }

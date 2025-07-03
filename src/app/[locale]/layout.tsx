@@ -1,8 +1,9 @@
-import {NextIntlClientProvider, useMessages} from 'next-intl';
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {locales} from '@/navigation';
-
-export default function LocaleLayout({
+ 
+export default async function LocaleLayout({
   children,
   params: {locale}
 }: {
@@ -12,7 +13,7 @@ export default function LocaleLayout({
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) notFound();
  
-  const messages = useMessages();
+  const messages = await getMessages();
  
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
