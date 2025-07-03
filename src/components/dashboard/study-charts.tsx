@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { BarChart, LineChart, TrendingUp } from 'lucide-react';
 import { Bar, BarChart as RechartsBarChart, Line, LineChart as RechartsLineChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
@@ -35,18 +36,20 @@ const monthlyData = [
 
 
 export function StudyCharts() {
+  const t = useTranslations('StudyCharts');
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2"><TrendingUp className="text-primary"/> Study Progress</CardTitle>
-        <CardDescription>Visualize your study habits over time.</CardDescription>
+        <CardTitle className="flex items-center gap-2"><TrendingUp className="text-primary"/> {t('title')}</CardTitle>
+        <CardDescription>{t('description')}</CardDescription>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="weekly">
           <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="daily">Daily</TabsTrigger>
-            <TabsTrigger value="weekly">Weekly</TabsTrigger>
-            <TabsTrigger value="monthly">Monthly</TabsTrigger>
+            <TabsTrigger value="daily">{t('daily')}</TabsTrigger>
+            <TabsTrigger value="weekly">{t('weekly')}</TabsTrigger>
+            <TabsTrigger value="monthly">{t('monthly')}</TabsTrigger>
           </TabsList>
           <TabsContent value="daily">
             <div className="h-[300px] w-full">

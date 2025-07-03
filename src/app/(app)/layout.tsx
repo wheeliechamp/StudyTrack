@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { BookMarked, LayoutGrid } from 'lucide-react';
+import { usePathname, Link } from '@/navigation';
 
 import { cn } from '@/lib/utils';
 import {
@@ -20,16 +20,17 @@ import { Header } from '@/components/dashboard/header';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const t = useTranslations('AppLayout');
 
   const menuItems = [
     {
       href: '/dashboard',
-      label: 'Dashboard',
+      label: t('dashboard'),
       icon: LayoutGrid,
     },
     {
       href: '/qualifications',
-      label: 'Qualifications',
+      label: t('qualifications'),
       icon: BookMarked,
     },
   ];
@@ -40,7 +41,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <SidebarHeader>
           <div className="flex items-center gap-2">
             <Logo className="w-7 h-7 text-primary" />
-            <span className="text-lg font-semibold font-headline">StudyTrack</span>
+            <span className="text-lg font-semibold font-headline">{t('appName')}</span>
           </div>
         </SidebarHeader>
         <SidebarContent>

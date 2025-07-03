@@ -1,22 +1,27 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { BookOpenCheck } from "lucide-react";
+import { Link } from '@/navigation';
+import { LanguageSwitcher } from "@/components/language-switcher";
+
 
 export default function LandingPage() {
+  const t = useTranslations('LandingPage');
   return (
     <div className="flex flex-col min-h-screen">
       <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link href="#" className="flex items-center justify-center" prefetch={false}>
+        <Link href="/" className="flex items-center justify-center" prefetch={false}>
           <BookOpenCheck className="h-6 w-6 text-primary" />
-          <span className="sr-only">StudyTrack</span>
+          <span className="sr-only">{t('srOnly')}</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <nav className="ml-auto flex gap-4 sm:gap-6 items-center">
+          <LanguageSwitcher />
           <Link href="/login" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            Login
+            {t('login')}
           </Link>
           <Button asChild>
-            <Link href="/signup">Get Started</Link>
+            <Link href="/signup">{t('getStarted')}</Link>
           </Button>
         </nav>
       </header>
@@ -27,15 +32,15 @@ export default function LandingPage() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-                    Unlock Your Learning Potential with StudyTrack
+                    {t('title')}
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Your personal guide to effective learning. Track your study hours, manage qualifications, and get AI-powered tips to optimize your schedule.
+                    {t('description')}
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button asChild size="lg">
-                    <Link href="/signup">Sign Up for Free</Link>
+                    <Link href="/signup">{t('signUpForFree')}</Link>
                   </Button>
                 </div>
               </div>
@@ -52,13 +57,13 @@ export default function LandingPage() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 StudyTrack. All rights reserved.</p>
+        <p className="text-xs text-muted-foreground">{t('copyright')}</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
-            Terms of Service
+            {t('terms')}
           </Link>
           <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
-            Privacy
+            {t('privacy')}
           </Link>
         </nav>
       </footer>

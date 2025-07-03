@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { PlusCircle, Edit, Trash2 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -19,6 +20,7 @@ type QualificationManagerProps = {
 export function QualificationManager({ initialQualifications }: QualificationManagerProps) {
   const [qualifications, setQualifications] = useState(initialQualifications);
   const [open, setOpen] = useState(false);
+  const t = useTranslations('QualificationManager');
 
   const handleAddQualification = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -41,33 +43,31 @@ export function QualificationManager({ initialQualifications }: QualificationMan
     <Card>
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
-            <CardTitle>Manage Qualifications</CardTitle>
-            <CardDescription>Add, edit, or remove your qualifications and subjects.</CardDescription>
+            <CardTitle>{t('title')}</CardTitle>
+            <CardDescription>{t('description')}</CardDescription>
         </div>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
             <Button>
-              <PlusCircle className="mr-2 h-4 w-4" /> Add Qualification
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('addQualification')}
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Add New Qualification</DialogTitle>
-              <DialogDescription>
-                Enter the name of the qualification and its subjects, separated by commas.
-              </DialogDescription>
+              <DialogTitle>{t('dialogTitle')}</DialogTitle>
+              <DialogDescription>{t('dialogDescription')}</DialogDescription>
             </DialogHeader>
             <form onSubmit={handleAddQualification} className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="name">Qualification Name</Label>
-                <Input id="name" name="name" placeholder="e.g., AWS Certified Solutions Architect" required/>
+                <Label htmlFor="name">{t('qualificationNameLabel')}</Label>
+                <Input id="name" name="name" placeholder={t('qualificationNamePlaceholder')} required/>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="subjects">Subjects (comma-separated)</Label>
-                <Input id="subjects" name="subjects" placeholder="e.g., Design Resilient Architectures, Define Performant Architectures" required/>
+                <Label htmlFor="subjects">{t('subjectsLabel')}</Label>
+                <Input id="subjects" name="subjects" placeholder={t('subjectsPlaceholder')} required/>
               </div>
               <DialogFooter>
-                <Button type="submit">Add Qualification</Button>
+                <Button type="submit">{t('addQualification')}</Button>
               </DialogFooter>
             </form>
           </DialogContent>

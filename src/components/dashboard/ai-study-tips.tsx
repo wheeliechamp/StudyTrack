@@ -1,6 +1,7 @@
 'use client';
 
 import { useFormState, useFormStatus } from 'react-dom';
+import { useTranslations } from 'next-intl';
 import { Lightbulb } from 'lucide-react';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
@@ -11,14 +12,16 @@ import { getAiStudyTips } from '@/app/actions';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
+  const t = useTranslations('AiStudyTips');
   return (
     <Button type="submit" className="w-full" disabled={pending}>
-      {pending ? 'Generating...' : 'Generate Tips'}
+      {pending ? t('generating') : t('generateTips')}
     </Button>
   );
 }
 
 export function AiStudyTips() {
+  const t = useTranslations('AiStudyTips');
   const initialState = { message: 'idle' as const, studyTips: [] };
   const [state, formAction] = useFormState(getAiStudyTips, initialState);
 
@@ -30,15 +33,15 @@ export function AiStudyTips() {
       <form action={formAction}>
         <input type="hidden" name="history" value={mockLearningHistory} />
         <CardHeader>
-          <CardTitle className="flex items-center gap-2"><Lightbulb className="text-primary"/> AI Study Tips</CardTitle>
-          <CardDescription>Get personalized tips to optimize your study schedule based on your recent activity.</CardDescription>
+          <CardTitle className="flex items-center gap-2"><Lightbulb className="text-primary"/> {t('title')}</CardTitle>
+          <CardDescription>{t('description')}</CardDescription>
         </CardHeader>
         <CardContent>
           {state.message === 'success' && state.studyTips && (
             <Accordion type="single" collapsible className="w-full">
               {state.studyTips.map((tip, index) => (
                 <AccordionItem value={`item-${index}`} key={index}>
-                  <AccordionTrigger>Tip #{index + 1}</AccordionTrigger>
+                  <AccordionTrigger>{t('tip', {index: index + 1})}</AccordionTrigger>
                   <AccordionContent>{tip}</AccordionContent>
                 </AccordionItem>
               ))}
@@ -52,7 +55,7 @@ export function AiStudyTips() {
             </div>
           )}
           {state.message === 'error' && (
-             <p className="text-sm text-destructive">{state.errors?.history || 'An unknown error occurred.'}</p>
+             <p className="text-sm text-destructive">{state.errors?.history || t('error')}</p>
           )}
         </CardContent>
         <CardFooter>

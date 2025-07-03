@@ -1,0 +1,97 @@
+{
+  "AuthForm": {
+    "welcomeBack": "Welcome Back",
+    "createAccountTitle": "Create an Account",
+    "signInDescription": "Sign in to continue to StudyTrack.",
+    "signUpDescription": "Enter your email below to create your account.",
+    "google": "Google",
+    "github": "GitHub",
+    "orContinueWith": "Or continue with",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "forgotPassword": "Forgot your password?",
+    "signInButton": "Sign In",
+    "createAccountButton": "Create Account",
+    "dontHaveAccount": "Don't have an account? ",
+    "alreadyHaveAccount": "Already have an account? ",
+    "signUpLink": "Sign up",
+    "signInLink": "Sign in",
+    "emailRequired": "Please enter a valid email address.",
+    "passwordMinLength": "Password must be at least 8 characters."
+  },
+  "LandingPage": {
+    "srOnly": "StudyTrack",
+    "login": "Login",
+    "getStarted": "Get Started",
+    "title": "Unlock Your Learning Potential with StudyTrack",
+    "description": "Your personal guide to effective learning. Track your study hours, manage qualifications, and get AI-powered tips to optimize your schedule.",
+    "signUpForFree": "Sign Up for Free",
+    "copyright": "© 2024 StudyTrack. All rights reserved.",
+    "terms": "Terms of Service",
+    "privacy": "Privacy"
+  },
+  "AppLayout": {
+    "dashboard": "Dashboard",
+    "qualifications": "Qualifications",
+    "appName": "StudyTrack"
+  },
+  "Header": {
+    "searchPlaceholder": "Search...",
+    "myAccount": "My Account",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "toggleUserMenu": "Toggle user menu"
+  },
+  "AiStudyTips": {
+    "title": "AI Study Tips",
+    "description": "Get personalized tips to optimize your study schedule based on your recent activity.",
+    "tip": "Tip #{index}",
+    "generating": "Generating...",
+    "generateTips": "Generate Tips",
+    "error": "An unknown error occurred."
+  },
+  "QualificationManager": {
+    "title": "Manage Qualifications",
+    "description": "Add, edit, or remove your qualifications and subjects.",
+    "addQualification": "Add Qualification",
+    "dialogTitle": "Add New Qualification",
+    "dialogDescription": "Enter the name of the qualification and its subjects, separated by commas.",
+    "qualificationNameLabel": "Qualification Name",
+    "qualificationNamePlaceholder": "e.g., AWS Certified Solutions Architect",
+    "subjectsLabel": "Subjects (comma-separated)",
+    "subjectsPlaceholder": "e.g., Design Resilient Architectures, Define Performant Architectures"
+  },
+  "RecentActivity": {
+    "title": "Recent Activity",
+    "description": "A log of your most recent study sessions.",
+    "subject": "Subject",
+    "qualification": "Qualification",
+    "date": "Date",
+    "duration": "Duration"
+  },
+  "StudyCharts": {
+    "title": "Study Progress",
+    "description": "Visualize your study habits over time.",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly"
+  },
+  "StudyTimer": {
+    "title": "Study Timer",
+    "description": "Select a subject and start the timer to log your study session.",
+    "selectQualification": "Select a qualification",
+    "selectSubject": "Select a subject",
+    "stopAndSave": "Stop & Save",
+    "pause": "Pause",
+    "resume": "Resume",
+    "start": "Start"
+  },
+  "RootLayout": {
+      "title": "StudyTrack",
+      "description": "Your personal guide to effective learning."
+  },
+  "LanguageSwitcher": {
+    "placeholder": "Language"
+  }
+}

@@ -1,4 +1,5 @@
 import { History } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
@@ -13,20 +14,22 @@ const recentSessions: StudySession[] = [
 ];
 
 export function RecentActivity() {
+  const t = useTranslations('RecentActivity');
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2"><History className="text-primary"/> Recent Activity</CardTitle>
-        <CardDescription>A log of your most recent study sessions.</CardDescription>
+        <CardTitle className="flex items-center gap-2"><History className="text-primary"/> {t('title')}</CardTitle>
+        <CardDescription>{t('description')}</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Subject</TableHead>
-              <TableHead className="hidden sm:table-cell">Qualification</TableHead>
-              <TableHead className="hidden md:table-cell">Date</TableHead>
-              <TableHead className="text-right">Duration</TableHead>
+              <TableHead>{t('subject')}</TableHead>
+              <TableHead className="hidden sm:table-cell">{t('qualification')}</TableHead>
+              <TableHead className="hidden md:table-cell">{t('date')}</TableHead>
+              <TableHead className="text-right">{t('duration')}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
