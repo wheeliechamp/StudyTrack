@@ -29,7 +29,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       icon: LayoutGrid,
     },
     {
-      href: '/qualifications',
+      href: '/projects',
       label: t('qualifications'),
       icon: BookMarked,
     },
