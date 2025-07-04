@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -34,6 +35,7 @@ type AuthFormProps = {
 export function AuthForm({ type }: AuthFormProps) {
   const t = useTranslations('AuthForm');
   const router = useRouter();
+  const [authError, setAuthError] = useState<string | null>(null);
 
   const formSchema = z.object({
     email: z.string().email({
@@ -53,10 +55,17 @@ export function AuthForm({ type }: AuthFormProps) {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // NOTE: Implement actual authentication logic here
-    console.log(values);
-    // For now, redirect to dashboard on successful submission
-    router.push('/dashboard');
+    setAuthError(null);
+    if (type === 'login') {
+      if (values.email === 'test@example.com' && values.password === 'password123') {
+        router.push('/dashboard');
+      } else {
+        setAuthError(t('invalidCredentials'));
+      }
+    } else {
+      // For signup, just redirect to dashboard on successful submission
+      router.push('/dashboard');
+    }
   }
 
   const isLogin = type === 'login';
@@ -135,6 +144,7 @@ export function AuthForm({ type }: AuthFormProps) {
                 </FormItem>
               )}
             />
+            {authError && <p className="text-sm font-medium text-destructive text-center">{authError}</p>}
             <Button type="submit" className="w-full">
               {isLogin ? t('signInButton') : t('createAccountButton')}
             </Button>

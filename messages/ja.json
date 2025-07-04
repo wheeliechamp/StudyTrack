@@ -17,7 +17,8 @@
     "signUpLink": "サインアップ",
     "signInLink": "サインイン",
     "emailRequired": "有効なメールアドレスを入力してください。",
-    "passwordMinLength": "パスワードは8文字以上である必要があります。"
+    "passwordMinLength": "パスワードは8文字以上である必要があります。",
+    "invalidCredentials": "メールアドレスまたはパスワードが正しくありません。"
   },
   "LandingPage": {
     "srOnly": "StudyTrack",
