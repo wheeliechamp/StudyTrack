@@ -1,11 +1,11 @@
-import { QualificationManager } from '@/components/dashboard/qualification-manager';
-import type { Qualification } from '@/lib/types';
+import { ProjectManager } from '@/components/dashboard/qualification-manager';
+import type { Project } from '@/lib/types';
 
 // Mock data
-const qualifications: Qualification[] = [
+const projects: Project[] = [
   { 
-    id: 'q1', 
-    name: 'Certified Cloud Practitioner', 
+    id: 'p1', 
+    name: 'AWS Cloud Learning', 
     subjects: [
       { id: 's1', name: 'Cloud Concepts' },
       { id: 's2', name: 'Security and Compliance' },
@@ -14,8 +14,8 @@ const qualifications: Qualification[] = [
     ]
   },
   { 
-    id: 'q2', 
-    name: 'Project Management Professional', 
+    id: 'p2', 
+    name: 'Project Management Study', 
     subjects: [
       { id: 's5', name: 'Initiating' },
       { id: 's6', name: 'Planning' },
@@ -25,8 +25,8 @@ const qualifications: Qualification[] = [
     ]
   },
   { 
-    id: 'q3', 
-    name: 'Certified Information Systems Security Professional', 
+    id: 'p3', 
+    name: 'CISSP Study', 
     subjects: [
       { id: 's10', name: 'Security and Risk Management' },
       { id: 's11', name: 'Asset Security' },
@@ -38,7 +38,7 @@ const qualifications: Qualification[] = [
 export default function QualificationsPage() {
   return (
     <div>
-      <QualificationManager initialQualifications={qualifications} />
+      <ProjectManager initialProjects={projects} />
     </div>
   );
 }

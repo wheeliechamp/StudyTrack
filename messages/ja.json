@@ -25,7 +25,7 @@
     "login": "ログイン",
     "getStarted": "始める",
     "title": "StudyTrackで学習の可能性を解き放つ",
-    "description": "効果的な学習のためのあなたのパーソナルガイド。学習時間を記録し、資格を管理し、AIによるヒントを得てスケジュールを最適化します。",
+    "description": "効果的な学習のためのあなたのパーソナルガイド。学習時間を記録し、プロジェクトを管理し、AIによるヒントを得てスケジュールを最適化します。",
     "signUpForFree": "無料でサインアップ",
     "copyright": "© 2024 StudyTrack. 全著作権所有。",
     "terms": "利用規約",
@@ -33,7 +33,7 @@
   },
   "AppLayout": {
     "dashboard": "ダッシュボード",
-    "qualifications": "資格",
+    "qualifications": "プロジェクト",
     "appName": "StudyTrack"
   },
   "Header": {
@@ -53,21 +53,21 @@
     "error": "不明なエラーが発生しました。"
   },
   "QualificationManager": {
-    "title": "資格の管理",
-    "description": "資格と科目を追加、編集、または削除します。",
-    "addQualification": "資格を追加",
-    "dialogTitle": "新しい資格を追加",
-    "dialogDescription": "資格の名前と科目をカンマで区切って入力してください。",
-    "qualificationNameLabel": "資格名",
-    "qualificationNamePlaceholder": "例：AWS認定ソリューションアーキテクト",
+    "title": "プロジェクトの管理",
+    "description": "プロジェクトと科目を追加、編集、または削除します。",
+    "addQualification": "プロジェクトを追加",
+    "dialogTitle": "新しいプロジェクトを追加",
+    "dialogDescription": "プロジェクトの名前と科目をカンマで区切って入力してください。",
+    "qualificationNameLabel": "プロジェクト名",
+    "qualificationNamePlaceholder": "例：新規Webアプリ開発",
     "subjectsLabel": "科目（カンマ区切り）",
-    "subjectsPlaceholder": "例：回復力のあるアーキテクチャの設計、パフォーマンスの高いアーキテクチャの定義"
+    "subjectsPlaceholder": "例：設計, 開発, マーケティング"
   },
   "RecentActivity": {
     "title": "最近のアクティビティ",
     "description": "最新の学習セッションのログ。",
     "subject": "科目",
-    "qualification": "資格",
+    "qualification": "プロジェクト",
     "date": "日付",
     "duration": "期間"
   },
@@ -81,7 +81,7 @@
   "StudyTimer": {
     "title": "学習タイマー",
     "description": "科目を選択してタイマーを開始し、学習セッションを記録します。",
-    "selectQualification": "資格を選択",
+    "selectQualification": "プロジェクトを選択",
     "selectSubject": "科目を選択",
     "stopAndSave": "停止して保存",
     "pause": "一時停止",

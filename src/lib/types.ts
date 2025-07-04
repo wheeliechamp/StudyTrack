@@ -1,4 +1,4 @@
-export type Qualification = {
+export type Project = {
   id: string;
   name: string;
   subjects: Subject[];
@@ -12,7 +12,7 @@ export type Subject = {
 export type StudySession = {
   id: string;
   subject: string;
-  qualification: string;
+  project: string;
   date: string;
   durationMinutes: number;
 };

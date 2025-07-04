@@ -6,14 +6,14 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { Timer, Play, Pause, Square } from 'lucide-react';
-import type { Qualification, Subject } from '@/lib/types';
+import type { Project, Subject } from '@/lib/types';
 
 type StudyTimerProps = {
-  qualifications: Qualification[];
+  projects: Project[];
 };
 
-export function StudyTimer({ qualifications }: StudyTimerProps) {
-  const [selectedQualification, setSelectedQualification] = useState<Qualification | null>(null);
+export function StudyTimer({ projects }: StudyTimerProps) {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [time, setTime] = useState(0);
@@ -34,10 +34,10 @@ export function StudyTimer({ qualifications }: StudyTimerProps) {
     };
   }, [isActive, time]);
 
-  const handleQualificationChange = (qualId: string) => {
-    const qual = qualifications.find(q => q.id === qualId) || null;
-    setSelectedQualification(qual);
-    setSubjects(qual ? qual.subjects : []);
+  const handleProjectChange = (projId: string) => {
+    const proj = projects.find(p => p.id === projId) || null;
+    setSelectedProject(proj);
+    setSubjects(proj ? proj.subjects : []);
     setSelectedSubject(null);
   };
   
@@ -68,7 +68,7 @@ export function StudyTimer({ qualifications }: StudyTimerProps) {
     return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const canStart = selectedQualification && selectedSubject;
+  const canStart = selectedProject && selectedSubject;
 
   return (
     <Card>
@@ -78,19 +78,19 @@ export function StudyTimer({ qualifications }: StudyTimerProps) {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
-            <Select onValueChange={handleQualificationChange}>
+            <Select onValueChange={handleProjectChange}>
               <SelectTrigger>
                 <SelectValue placeholder={t('selectQualification')} />
               </SelectTrigger>
               <SelectContent>
-                {qualifications.map((qual) => (
-                  <SelectItem key={qual.id} value={qual.id}>{qual.name}</SelectItem>
+                {projects.map((proj) => (
+                  <SelectItem key={proj.id} value={proj.id}>{proj.name}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
         </div>
         <div className="space-y-2">
-            <Select onValueChange={handleSubjectChange} disabled={!selectedQualification}>
+            <Select onValueChange={handleSubjectChange} disabled={!selectedProject}>
               <SelectTrigger>
                 <SelectValue placeholder={t('selectSubject')} />
               </SelectTrigger>

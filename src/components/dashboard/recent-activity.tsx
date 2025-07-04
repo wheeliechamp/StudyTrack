@@ -8,11 +8,11 @@ import { Badge } from '@/components/ui/badge';
 import type { StudySession } from '@/lib/types';
 
 const recentSessions: StudySession[] = [
-  { id: '1', subject: 'Cloud Concepts', qualification: 'Certified Cloud Practitioner', date: '2024-05-20', durationMinutes: 60 },
-  { id: '2', subject: 'Planning', qualification: 'Project Management Professional', date: '2024-05-20', durationMinutes: 90 },
-  { id: '3', subject: 'Security and Compliance', qualification: 'Certified Cloud Practitioner', date: '2024-05-19', durationMinutes: 45 },
-  { id: '4', subject: 'Executing', qualification: 'Project Management Professional', date: '2024-05-19', durationMinutes: 120 },
-  { id: '5', subject: 'Technology', qualification: 'Certified Cloud Practitioner', date: '2024-05-18', durationMinutes: 75 },
+  { id: '1', subject: 'Cloud Concepts', project: 'AWS Cloud Learning', date: '2024-05-20', durationMinutes: 60 },
+  { id: '2', subject: 'Planning', project: 'Project Management Study', date: '2024-05-20', durationMinutes: 90 },
+  { id: '3', subject: 'Security and Compliance', project: 'AWS Cloud Learning', date: '2024-05-19', durationMinutes: 45 },
+  { id: '4', subject: 'Executing', project: 'Project Management Study', date: '2024-05-19', durationMinutes: 120 },
+  { id: '5', subject: 'Technology', project: 'AWS Cloud Learning', date: '2024-05-18', durationMinutes: 75 },
 ];
 
 export function RecentActivity() {
@@ -40,7 +40,7 @@ export function RecentActivity() {
                 <TableCell>
                   <div className="font-medium">{session.subject}</div>
                 </TableCell>
-                <TableCell className="hidden sm:table-cell">{session.qualification}</TableCell>
+                <TableCell className="hidden sm:table-cell">{session.project}</TableCell>
                 <TableCell className="hidden md:table-cell">{session.date}</TableCell>
                 <TableCell className="text-right">{session.durationMinutes} min</TableCell>
               </TableRow>

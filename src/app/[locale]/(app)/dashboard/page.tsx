@@ -2,13 +2,13 @@ import { StudyTimer } from '@/components/dashboard/study-timer';
 import { AiStudyTips } from '@/components/dashboard/ai-study-tips';
 import { StudyCharts } from '@/components/dashboard/study-charts';
 import { RecentActivity } from '@/components/dashboard/recent-activity';
-import type { Qualification } from '@/lib/types';
+import type { Project } from '@/lib/types';
 
 // Mock data
-const qualifications: Qualification[] = [
+const projects: Project[] = [
   { 
-    id: 'q1', 
-    name: 'Certified Cloud Practitioner', 
+    id: 'p1', 
+    name: 'AWS Cloud Learning', 
     subjects: [
       { id: 's1', name: 'Cloud Concepts' },
       { id: 's2', name: 'Security and Compliance' },
@@ -17,8 +17,8 @@ const qualifications: Qualification[] = [
     ]
   },
   { 
-    id: 'q2', 
-    name: 'Project Management Professional', 
+    id: 'p2', 
+    name: 'Project Management Study', 
     subjects: [
       { id: 's5', name: 'Initiating' },
       { id: 's6', name: 'Planning' },
@@ -37,7 +37,7 @@ export default function DashboardPage() {
         <RecentActivity />
       </div>
       <div className="lg:col-span-1 space-y-6">
-        <StudyTimer qualifications={qualifications} />
+        <StudyTimer projects={projects} />
         <AiStudyTips />
       </div>
     </div>

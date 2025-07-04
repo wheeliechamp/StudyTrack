@@ -25,7 +25,7 @@
     "login": "Login",
     "getStarted": "Get Started",
     "title": "Unlock Your Learning Potential with StudyTrack",
-    "description": "Your personal guide to effective learning. Track your study hours, manage qualifications, and get AI-powered tips to optimize your schedule.",
+    "description": "Your personal guide to effective learning. Track your study hours, manage projects, and get AI-powered tips to optimize your schedule.",
     "signUpForFree": "Sign Up for Free",
     "copyright": "© 2024 StudyTrack. All rights reserved.",
     "terms": "Terms of Service",
@@ -33,7 +33,7 @@
   },
   "AppLayout": {
     "dashboard": "Dashboard",
-    "qualifications": "Qualifications",
+    "qualifications": "Projects",
     "appName": "StudyTrack"
   },
   "Header": {
@@ -53,21 +53,21 @@
     "error": "An unknown error occurred."
   },
   "QualificationManager": {
-    "title": "Manage Qualifications",
-    "description": "Add, edit, or remove your qualifications and subjects.",
-    "addQualification": "Add Qualification",
-    "dialogTitle": "Add New Qualification",
-    "dialogDescription": "Enter the name of the qualification and its subjects, separated by commas.",
-    "qualificationNameLabel": "Qualification Name",
-    "qualificationNamePlaceholder": "e.g., AWS Certified Solutions Architect",
+    "title": "Manage Projects",
+    "description": "Add, edit, or remove your projects and subjects.",
+    "addQualification": "Add Project",
+    "dialogTitle": "Add New Project",
+    "dialogDescription": "Enter the name of the project and its subjects, separated by commas.",
+    "qualificationNameLabel": "Project Name",
+    "qualificationNamePlaceholder": "e.g., New Website Launch",
     "subjectsLabel": "Subjects (comma-separated)",
-    "subjectsPlaceholder": "e.g., Design Resilient Architectures, Define Performant Architectures"
+    "subjectsPlaceholder": "e.g., Design, Development, Marketing"
   },
   "RecentActivity": {
     "title": "Recent Activity",
     "description": "A log of your most recent study sessions.",
     "subject": "Subject",
-    "qualification": "Qualification",
+    "qualification": "Project",
     "date": "Date",
     "duration": "Duration"
   },
@@ -81,7 +81,7 @@
   "StudyTimer": {
     "title": "Study Timer",
     "description": "Select a subject and start the timer to log your study session.",
-    "selectQualification": "Select a qualification",
+    "selectQualification": "Select a project",
     "selectSubject": "Select a subject",
     "stopAndSave": "Stop & Save",
     "pause": "Pause",
