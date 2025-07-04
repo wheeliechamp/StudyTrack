@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Lightbulb } from 'lucide-react';
 
@@ -23,7 +24,7 @@ function SubmitButton() {
 export function AiStudyTips() {
   const t = useTranslations('AiStudyTips');
   const initialState = { message: 'idle' as const, studyTips: [] };
-  const [state, formAction] = useFormState(getAiStudyTips, initialState);
+  const [state, formAction] = useActionState(getAiStudyTips, initialState);
 
   // A mock summary of learning history. In a real app, this would be dynamically generated.
   const mockLearningHistory = "User has studied 'Cloud Concepts' for 120 minutes, 'Security and Compliance' for 90 minutes, and 'Project Management' for 200 minutes over the last week. Performance on Cloud Concepts is strong, but time spent on Project Management yields lower scores on practice tests.";
