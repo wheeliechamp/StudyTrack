@@ -83,18 +83,18 @@ export function StudyTimer({ projects }: StudyTimerProps) {
             </Select>
         </div>
         <div className="text-center bg-muted rounded-lg p-4">
-            <p className="text-5xl font-mono font-bold tracking-widest text-primary">
+            <p className="text-4xl sm:text-5xl font-mono font-bold tracking-wide sm:tracking-widest text-primary">
                 {formatTime(time)}
             </p>
         </div>
       </CardContent>
-      <CardFooter className="flex justify-between gap-2">
+      <CardFooter className="flex gap-2">
         {time > 0 && (
-          <Button variant="destructive" onClick={handleStop} className="w-full">
+          <Button variant="destructive" onClick={handleStop} className="flex-1">
             <Square className="mr-2 h-4 w-4" /> {t('stopAndSave')}
           </Button>
         )}
-        <Button onClick={isActive ? handlePause : handleStart} disabled={!canStart} className="w-full">
+        <Button onClick={isActive ? handlePause : handleStart} disabled={!canStart} className="flex-1">
           {isActive ? <Pause className="mr-2 h-4 w-4" /> : <Play className="mr-2 h-4 w-4" />}
           {isActive ? t('pause') : (time > 0 ? t('resume') : t('start'))}
         </Button>
