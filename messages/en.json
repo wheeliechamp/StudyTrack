@@ -54,19 +54,19 @@
   },
   "QualificationManager": {
     "title": "Manage Projects",
-    "description": "Add, edit, or remove your projects and subjects.",
+    "description": "Add, edit, or remove your projects and their descriptions.",
     "addQualification": "Add Project",
     "dialogTitle": "Add New Project",
-    "dialogDescription": "Enter the name of the project and its subjects, separated by commas.",
+    "dialogDescription": "Enter the name of the project and an optional description.",
     "qualificationNameLabel": "Project Name",
     "qualificationNamePlaceholder": "e.g., New Website Launch",
-    "subjectsLabel": "Subjects (comma-separated)",
-    "subjectsPlaceholder": "e.g., Design, Development, Marketing"
+    "descriptionLabel": "Description (Optional)",
+    "descriptionPlaceholder": "e.g., A project to launch a new website for a client."
   },
   "RecentActivity": {
     "title": "Recent Activity",
     "description": "A log of your most recent study sessions.",
-    "subject": "Subject",
+    "task": "Task",
     "qualification": "Project",
     "date": "Date",
     "duration": "Duration"
@@ -80,9 +80,10 @@
   },
   "StudyTimer": {
     "title": "Study Timer",
-    "description": "Select a subject and start the timer to log your study session.",
+    "description": "Select a project, enter a task, and start the timer to log your study session.",
     "selectQualification": "Select a project",
-    "selectSubject": "Select a subject",
+    "taskLabel": "Task",
+    "taskPlaceholder": "e.g., Implement login page",
     "stopAndSave": "Stop & Save",
     "pause": "Pause",
     "resume": "Resume",

@@ -5,8 +5,10 @@ import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Timer, Play, Pause, Square } from 'lucide-react';
-import type { Project, Subject } from '@/lib/types';
+import type { Project } from '@/lib/types';
 
 type StudyTimerProps = {
   projects: Project[];
@@ -14,8 +16,7 @@ type StudyTimerProps = {
 
 export function StudyTimer({ projects }: StudyTimerProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
-  const [subjects, setSubjects] = useState<Subject[]>([]);
+  const [task, setTask] = useState('');
   const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const t = useTranslations('StudyTimer');
@@ -37,13 +38,6 @@ export function StudyTimer({ projects }: StudyTimerProps) {
   const handleProjectChange = (projId: string) => {
     const proj = projects.find(p => p.id === projId) || null;
     setSelectedProject(proj);
-    setSubjects(proj ? proj.subjects : []);
-    setSelectedSubject(null);
-  };
-  
-  const handleSubjectChange = (subjId: string) => {
-    const subj = subjects.find(s => s.id === subjId) || null;
-    setSelectedSubject(subj);
   };
 
   const handleStart = () => {
@@ -57,8 +51,9 @@ export function StudyTimer({ projects }: StudyTimerProps) {
   const handleStop = () => {
     setIsActive(false);
     // Here you would typically save the session
-    console.log(`Session ended. Duration: ${time} seconds for ${selectedSubject?.name}`);
+    console.log(`Session ended. Duration: ${time} seconds for task '${task}' in project ${selectedProject?.name}`);
     setTime(0);
+    setTask('');
   };
 
   const formatTime = (seconds: number) => {
@@ -68,7 +63,7 @@ export function StudyTimer({ projects }: StudyTimerProps) {
     return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const canStart = selectedProject && selectedSubject;
+  const canStart = selectedProject && task.trim() !== '';
 
   return (
     <Card>
@@ -78,8 +73,9 @@ export function StudyTimer({ projects }: StudyTimerProps) {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
+            <Label htmlFor="project-select">{t('selectQualification')}</Label>
             <Select onValueChange={handleProjectChange}>
-              <SelectTrigger>
+              <SelectTrigger id="project-select">
                 <SelectValue placeholder={t('selectQualification')} />
               </SelectTrigger>
               <SelectContent>
@@ -90,16 +86,14 @@ export function StudyTimer({ projects }: StudyTimerProps) {
             </Select>
         </div>
         <div className="space-y-2">
-            <Select onValueChange={handleSubjectChange} disabled={!selectedProject}>
-              <SelectTrigger>
-                <SelectValue placeholder={t('selectSubject')} />
-              </SelectTrigger>
-              <SelectContent>
-                {subjects.map((subj) => (
-                  <SelectItem key={subj.id} value={subj.id}>{subj.name}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <Label htmlFor="task-input">{t('taskLabel')}</Label>
+            <Input 
+              id="task-input"
+              placeholder={t('taskPlaceholder')}
+              value={task}
+              onChange={(e) => setTask(e.target.value)}
+              disabled={!selectedProject}
+            />
         </div>
         <div className="text-center bg-muted rounded-lg p-4">
             <p className="text-5xl font-mono font-bold tracking-widest text-primary">

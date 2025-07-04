@@ -10,7 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
+import { Textarea } from '@/components/ui/textarea';
 import type { Project } from '@/lib/types';
 
 type ProjectManagerProps = {
@@ -26,13 +26,13 @@ export function ProjectManager({ initialProjects }: ProjectManagerProps) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const name = formData.get('name') as string;
-    const subjects = (formData.get('subjects') as string).split(',').map(s => s.trim()).filter(Boolean);
+    const description = formData.get('description') as string;
 
-    if (name && subjects.length > 0) {
+    if (name) {
       const newProject: Project = {
         id: `p${projects.length + 1}`,
         name,
-        subjects: subjects.map((sub, i) => ({ id: `s${Date.now()}${i}`, name: sub })),
+        description,
       };
       setProjects([...projects, newProject]);
       setOpen(false);
@@ -63,8 +63,8 @@ export function ProjectManager({ initialProjects }: ProjectManagerProps) {
                 <Input id="name" name="name" placeholder={t('qualificationNamePlaceholder')} required/>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="subjects">{t('subjectsLabel')}</Label>
-                <Input id="subjects" name="subjects" placeholder={t('subjectsPlaceholder')} required/>
+                <Label htmlFor="description">{t('descriptionLabel')}</Label>
+                <Textarea id="description" name="description" placeholder={t('descriptionPlaceholder')} />
               </div>
               <DialogFooter>
                 <Button type="submit">{t('addQualification')}</Button>
@@ -87,11 +87,7 @@ export function ProjectManager({ initialProjects }: ProjectManagerProps) {
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <div className="flex flex-wrap gap-2 p-2">
-                  {proj.subjects.map((sub) => (
-                    <Badge variant="secondary" key={sub.id}>{sub.name}</Badge>
-                  ))}
-                </div>
+                <p className="text-sm text-muted-foreground p-2">{proj.description || 'No description provided.'}</p>
               </AccordionContent>
             </AccordionItem>
           ))}

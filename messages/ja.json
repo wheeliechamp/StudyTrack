@@ -54,19 +54,19 @@
   },
   "QualificationManager": {
     "title": "プロジェクトの管理",
-    "description": "プロジェクトと科目を追加、編集、または削除します。",
+    "description": "プロジェクトとその概要を追加、編集、または削除します。",
     "addQualification": "プロジェクトを追加",
     "dialogTitle": "新しいプロジェクトを追加",
-    "dialogDescription": "プロジェクトの名前と科目をカンマで区切って入力してください。",
+    "dialogDescription": "プロジェクトの名前と、任意で概要を入力してください。",
     "qualificationNameLabel": "プロジェクト名",
     "qualificationNamePlaceholder": "例：新規Webアプリ開発",
-    "subjectsLabel": "科目（カンマ区切り）",
-    "subjectsPlaceholder": "例：設計, 開発, マーケティング"
+    "descriptionLabel": "概要（任意）",
+    "descriptionPlaceholder": "例：クライアント向けの新しいウェブサイトを立ち上げるプロジェクト。"
   },
   "RecentActivity": {
     "title": "最近のアクティビティ",
     "description": "最新の学習セッションのログ。",
-    "subject": "科目",
+    "task": "タスク",
     "qualification": "プロジェクト",
     "date": "日付",
     "duration": "期間"
@@ -80,9 +80,10 @@
   },
   "StudyTimer": {
     "title": "学習タイマー",
-    "description": "科目を選択してタイマーを開始し、学習セッションを記録します。",
+    "description": "プロジェクトを選択し、タスクを入力してタイマーを開始し、学習セッションを記録します。",
     "selectQualification": "プロジェクトを選択",
-    "selectSubject": "科目を選択",
+    "taskLabel": "タスク",
+    "taskPlaceholder": "例：ログインページの実装",
     "stopAndSave": "停止して保存",
     "pause": "一時停止",
     "resume": "再開",

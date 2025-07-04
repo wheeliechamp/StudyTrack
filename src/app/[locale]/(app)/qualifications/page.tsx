@@ -6,32 +6,17 @@ const projects: Project[] = [
   { 
     id: 'p1', 
     name: 'AWS Cloud Learning', 
-    subjects: [
-      { id: 's1', name: 'Cloud Concepts' },
-      { id: 's2', name: 'Security and Compliance' },
-      { id: 's3', name: 'Technology' },
-      { id: 's4', name: 'Billing and Pricing' },
-    ]
+    description: 'Studying for the AWS Certified Cloud Practitioner exam. Covering all core concepts including services, security, architecture, and pricing.'
   },
   { 
     id: 'p2', 
     name: 'Project Management Study', 
-    subjects: [
-      { id: 's5', name: 'Initiating' },
-      { id: 's6', name: 'Planning' },
-      { id: 's7', name: 'Executing' },
-      { id: 's8', name: 'Monitoring and Controlling' },
-      { id: 's9', name: 'Closing' },
-    ]
+    description: 'Preparing for the PMP certification. Focusing on the five process groups: Initiating, Planning, Executing, Monitoring and Controlling, and Closing.'
   },
   { 
     id: 'p3', 
     name: 'CISSP Study', 
-    subjects: [
-      { id: 's10', name: 'Security and Risk Management' },
-      { id: 's11', name: 'Asset Security' },
-      { id: 's12', name: 'Security Architecture and Engineering' },
-    ]
+    description: 'Working towards the Certified Information Systems Security Professional certification. Covering topics like Security and Risk Management, Asset Security, and Security Architecture.'
   },
 ];
 
