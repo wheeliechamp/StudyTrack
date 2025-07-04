@@ -20,7 +20,7 @@ type ProjectManagerProps = {
 export function ProjectManager({ initialProjects }: ProjectManagerProps) {
   const [projects, setProjects] = useState(initialProjects);
   const [open, setOpen] = useState(false);
-  const t = useTranslations('QualificationManager');
+  const t = useTranslations('ProjectManager');
 
   const handleAddProject = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -49,7 +49,7 @@ export function ProjectManager({ initialProjects }: ProjectManagerProps) {
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
             <Button>
-              <PlusCircle className="mr-2 h-4 w-4" /> {t('addQualification')}
+              <PlusCircle className="mr-2 h-4 w-4" /> {t('addProject')}
             </Button>
           </DialogTrigger>
           <DialogContent>
@@ -59,15 +59,15 @@ export function ProjectManager({ initialProjects }: ProjectManagerProps) {
             </DialogHeader>
             <form onSubmit={handleAddProject} className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="name">{t('qualificationNameLabel')}</Label>
-                <Input id="name" name="name" placeholder={t('qualificationNamePlaceholder')} required/>
+                <Label htmlFor="name">{t('projectNameLabel')}</Label>
+                <Input id="name" name="name" placeholder={t('projectNamePlaceholder')} required/>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="description">{t('descriptionLabel')}</Label>
                 <Textarea id="description" name="description" placeholder={t('descriptionPlaceholder')} />
               </div>
               <DialogFooter>
-                <Button type="submit">{t('addQualification')}</Button>
+                <Button type="submit">{t('addProject')}</Button>
               </DialogFooter>
             </form>
           </DialogContent>

@@ -27,7 +27,7 @@ export function RecentActivity() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>{t('qualification')}</TableHead>
+              <TableHead>{t('project')}</TableHead>
               <TableHead className="hidden md:table-cell">{t('date')}</TableHead>
               <TableHead className="text-right">{t('duration')}</TableHead>
             </TableRow>
