@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Timer, Play, Pause, Square } from 'lucide-react';
 import type { Project } from '@/lib/types';
@@ -16,7 +15,6 @@ type StudyTimerProps = {
 
 export function StudyTimer({ projects }: StudyTimerProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [task, setTask] = useState('');
   const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const t = useTranslations('StudyTimer');
@@ -51,9 +49,8 @@ export function StudyTimer({ projects }: StudyTimerProps) {
   const handleStop = () => {
     setIsActive(false);
     // Here you would typically save the session
-    console.log(`Session ended. Duration: ${time} seconds for task '${task}' in project ${selectedProject?.name}`);
+    console.log(`Session ended. Duration: ${time} seconds for project ${selectedProject?.name}`);
     setTime(0);
-    setTask('');
   };
 
   const formatTime = (seconds: number) => {
@@ -84,16 +81,6 @@ export function StudyTimer({ projects }: StudyTimerProps) {
                 ))}
               </SelectContent>
             </Select>
-        </div>
-        <div className="space-y-2">
-            <Label htmlFor="task-input">{t('taskLabel')}</Label>
-            <Input 
-              id="task-input"
-              placeholder={t('taskPlaceholder')}
-              value={task}
-              onChange={(e) => setTask(e.target.value)}
-              disabled={!selectedProject}
-            />
         </div>
         <div className="text-center bg-muted rounded-lg p-4">
             <p className="text-5xl font-mono font-bold tracking-widest text-primary">

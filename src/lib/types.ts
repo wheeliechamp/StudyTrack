@@ -6,7 +6,6 @@ export type Project = {
 
 export type StudySession = {
   id: string;
-  task: string;
   project: string;
   date: string;
   durationMinutes: number;
