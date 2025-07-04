@@ -33,7 +33,7 @@
   },
   "AppLayout": {
     "dashboard": "Dashboard",
-    "qualifications": "Projects",
+    "projects": "Projects",
     "appName": "StudyTrack"
   },
   "Header": {
@@ -52,21 +52,21 @@
     "generateTips": "Generate Tips",
     "error": "An unknown error occurred."
   },
-  "QualificationManager": {
+  "ProjectManager": {
     "title": "Manage Projects",
     "description": "Add, edit, or remove your projects and their descriptions.",
-    "addQualification": "Add Project",
+    "addProject": "Add Project",
     "dialogTitle": "Add New Project",
     "dialogDescription": "Enter the name of the project and an optional description.",
-    "qualificationNameLabel": "Project Name",
-    "qualificationNamePlaceholder": "e.g., New Website Launch",
+    "projectNameLabel": "Project Name",
+    "projectNamePlaceholder": "e.g., New Website Launch",
     "descriptionLabel": "Description (Optional)",
     "descriptionPlaceholder": "e.g., A project to launch a new website for a client."
   },
   "RecentActivity": {
     "title": "Recent Activity",
     "description": "A log of your most recent study sessions.",
-    "qualification": "Project",
+    "project": "Project",
     "date": "Date",
     "duration": "Duration"
   },
@@ -81,6 +81,8 @@
     "title": "Study Timer",
     "description": "Select a project and start the timer to log your study session.",
     "selectProject": "Select a project",
+    "searchProject": "Search project...",
+    "projectNotFound": "No project found.",
     "stopAndSave": "Stop & Save",
     "pause": "Pause",
     "resume": "Resume",
