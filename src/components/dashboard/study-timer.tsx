@@ -63,7 +63,7 @@ export function StudyTimer({ projects }: StudyTimerProps) {
     return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const canStart = selectedProject && task.trim() !== '';
+  const canStart = !!selectedProject;
 
   return (
     <Card>
@@ -73,10 +73,10 @@ export function StudyTimer({ projects }: StudyTimerProps) {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="space-y-2">
-            <Label htmlFor="project-select">{t('selectQualification')}</Label>
+            <Label htmlFor="project-select">{t('selectProject')}</Label>
             <Select onValueChange={handleProjectChange}>
               <SelectTrigger id="project-select">
-                <SelectValue placeholder={t('selectQualification')} />
+                <SelectValue placeholder={t('selectProject')} />
               </SelectTrigger>
               <SelectContent>
                 {projects.map((proj) => (
