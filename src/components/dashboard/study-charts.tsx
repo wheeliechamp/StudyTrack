@@ -1,12 +1,12 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { BarChart, LineChart, TrendingUp } from 'lucide-react';
-import { Bar, BarChart as RechartsBarChart, Line, LineChart as RechartsLineChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import { TrendingUp } from 'lucide-react';
+import { Bar, BarChart as RechartsBarChart, Line, LineChart as RechartsLineChart, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ChartTooltipContent } from '@/components/ui/chart';
+import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
 
 const dailyData = [
   { date: 'Mon', totalHours: 2.5 },
@@ -34,6 +34,13 @@ const monthlyData = [
     { month: 'Jun', totalHours: 85 },
 ];
 
+const chartConfig = {
+  totalHours: {
+    label: "Hours",
+    color: "hsl(var(--primary))",
+  },
+} satisfies ChartConfig;
+
 
 export function StudyCharts() {
   const t = useTranslations('StudyCharts');
@@ -52,52 +59,46 @@ export function StudyCharts() {
             <TabsTrigger value="monthly">{t('monthly')}</TabsTrigger>
           </TabsList>
           <TabsContent value="daily">
-            <div className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <RechartsBarChart data={dailyData}>
+            <ChartContainer config={chartConfig} className="h-[300px] w-full">
+                <RechartsBarChart data={dailyData} accessibilityLayer>
                   <CartesianGrid strokeDasharray="3 3" vertical={false}/>
                   <XAxis dataKey="date" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
                   <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}h`} />
-                  <Tooltip
+                  <ChartTooltip
                     cursor={{ fill: 'hsl(var(--muted))' }}
-                    content={<ChartTooltipContent unit="h" />}
+                    content={<ChartTooltipContent hideLabel />}
                   />
-                  <Bar dataKey="totalHours" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="totalHours" fill="var(--color-totalHours)" radius={[4, 4, 0, 0]} />
                 </RechartsBarChart>
-              </ResponsiveContainer>
-            </div>
+            </ChartContainer>
           </TabsContent>
           <TabsContent value="weekly">
-            <div className="h-[300px] w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                    <RechartsLineChart data={weeklyData}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false}/>
-                        <XAxis dataKey="week" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                        <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}h`} />
-                        <Tooltip
-                            cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 2, strokeDasharray: '3 3' }}
-                            content={<ChartTooltipContent indicator="dot" unit="h" />}
-                        />
-                        <Line type="monotone" dataKey="totalHours" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ r: 6, fill: 'hsl(var(--primary))' }} activeDot={{ r: 8, fill: 'hsl(var(--primary))' }}/>
-                    </RechartsLineChart>
-                </ResponsiveContainer>
-            </div>
+            <ChartContainer config={chartConfig} className="h-[300px] w-full">
+                <RechartsLineChart data={weeklyData} accessibilityLayer>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false}/>
+                    <XAxis dataKey="week" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                    <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}h`} />
+                    <ChartTooltip
+                        cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 2, strokeDasharray: '3 3' }}
+                        content={<ChartTooltipContent indicator="dot" hideLabel />}
+                    />
+                    <Line type="monotone" dataKey="totalHours" stroke="var(--color-totalHours)" strokeWidth={2} dot={{ r: 6 }} activeDot={{ r: 8 }}/>
+                </RechartsLineChart>
+            </ChartContainer>
           </TabsContent>
           <TabsContent value="monthly">
-          <div className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <RechartsBarChart data={monthlyData}>
+          <ChartContainer config={chartConfig} className="h-[300px] w-full">
+                <RechartsBarChart data={monthlyData} accessibilityLayer>
                   <CartesianGrid strokeDasharray="3 3" vertical={false}/>
                   <XAxis dataKey="month" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
                   <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}h`} />
-                  <Tooltip
+                  <ChartTooltip
                     cursor={{ fill: 'hsl(var(--muted))' }}
-                    content={<ChartTooltipContent unit="h" />}
+                    content={<ChartTooltipContent hideLabel />}
                   />
-                  <Bar dataKey="totalHours" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="totalHours" fill="var(--color-totalHours)" radius={[4, 4, 0, 0]} />
                 </RechartsBarChart>
-              </ResponsiveContainer>
-            </div>
+            </ChartContainer>
           </TabsContent>
         </Tabs>
       </CardContent>
