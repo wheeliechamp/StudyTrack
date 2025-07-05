@@ -37,7 +37,7 @@
     "appName": "StudyTrack"
   },
   "Header": {
-    "searchPlaceholder": "検索...",
+    "searchPlaceholder": "プロジェクトを検索...",
     "myAccount": "マイアカウント",
     "profile": "プロフィール",
     "settings": "設定",
@@ -94,5 +94,10 @@
   },
     "LanguageSwitcher": {
     "placeholder": "言語"
+  },
+  "SearchPage": {
+    "title": "「{query}」の検索結果",
+    "noResults": "プロジェクトが見つかりませんでした",
+    "noResultsDescription": "「{query}」に一致するプロジェクトはありませんでした。別のキーワードでお試しください。"
   }
 }

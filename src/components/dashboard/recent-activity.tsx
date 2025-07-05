@@ -6,15 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import type { StudySession } from '@/lib/types';
 
-const recentSessions: StudySession[] = [
-  { id: '1', project: 'AWS Cloud Learning', date: '2024-05-20', durationMinutes: 60 },
-  { id: '2', project: 'Project Management Study', date: '2024-05-20', durationMinutes: 90 },
-  { id: '3', project: 'CISSP Study', date: '2024-05-19', durationMinutes: 45 },
-  { id: '4', project: 'AWS Cloud Learning', date: '2024-05-19', durationMinutes: 120 },
-  { id: '5', project: 'Project Management Study', date: '2024-05-18', durationMinutes: 75 },
-];
-
-export function RecentActivity() {
+export function RecentActivity({ initialSessions }: { initialSessions: StudySession[] }) {
   const t = useTranslations('RecentActivity');
 
   return (
@@ -33,7 +25,7 @@ export function RecentActivity() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {recentSessions.map((session) => (
+            {initialSessions.map((session) => (
               <TableRow key={session.id}>
                 <TableCell>
                   <div className="font-medium">{session.project}</div>

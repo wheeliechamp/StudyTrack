@@ -13,7 +13,8 @@ export const pathnames = {
   '/login': '/login',
   '/signup': '/signup',
   '/dashboard': '/dashboard',
-  '/projects': '/projects'
+  '/projects': '/projects',
+  '/search': '/search'
 } satisfies Pathnames<typeof locales>;
 
 export const {Link, redirect, usePathname, useRouter} =

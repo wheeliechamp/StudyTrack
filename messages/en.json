@@ -37,7 +37,7 @@
     "appName": "StudyTrack"
   },
   "Header": {
-    "searchPlaceholder": "Search...",
+    "searchPlaceholder": "Search projects...",
     "myAccount": "My Account",
     "profile": "Profile",
     "settings": "Settings",
@@ -94,5 +94,10 @@
   },
   "LanguageSwitcher": {
     "placeholder": "Language"
+  },
+  "SearchPage": {
+    "title": "Search results for \"{query}\"",
+    "noResults": "No Projects Found",
+    "noResultsDescription": "Your search for \"{query}\" did not match any projects. Try a different keyword."
   }
 }
