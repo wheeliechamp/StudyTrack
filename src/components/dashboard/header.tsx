@@ -67,8 +67,8 @@ export function Header() {
               <DropdownMenuContent align="end">
                   <DropdownMenuLabel>{t('myAccount')}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild><Link href="#">{t('profile')}</Link></DropdownMenuItem>
-                  <DropdownMenuItem asChild><Link href="#">{t('settings')}</Link></DropdownMenuItem>
+                  <DropdownMenuItem disabled>{t('profile')}</DropdownMenuItem>
+                  <DropdownMenuItem disabled>{t('settings')}</DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild><Link href="/">{t('logout')}</Link></DropdownMenuItem>
               </DropdownMenuContent>
