@@ -71,7 +71,7 @@
     "duration": "Duration"
   },
   "StudyCharts": {
-    "title": "Study Progress",
+    "title": "Study Chart",
     "description": "Visualize your study habits over time.",
     "daily": "Daily",
     "weekly": "Weekly",

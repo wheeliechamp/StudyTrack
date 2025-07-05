@@ -71,7 +71,7 @@
     "duration": "期間"
   },
   "StudyCharts": {
-    "title": "学習の進捗",
+    "title": "学習チャート",
     "description": "学習習慣を時系列で視覚化します。",
     "daily": "毎日",
     "weekly": "毎週",
