@@ -67,7 +67,8 @@
     "description": "A log of your most recent study sessions.",
     "project": "Project",
     "date": "Date",
-    "duration": "Duration"
+    "duration": "Duration",
+    "durationValue": "{minutes} min"
   },
   "StudyCharts": {
     "title": "Study Progress",

@@ -31,7 +31,7 @@ export function RecentActivity({ initialSessions }: { initialSessions: StudySess
                   <div className="font-medium">{session.project}</div>
                 </TableCell>
                 <TableCell className="hidden md:table-cell">{session.date}</TableCell>
-                <TableCell className="text-right">{session.durationMinutes} min</TableCell>
+                <TableCell className="text-right">{t('durationValue', { minutes: session.durationMinutes })}</TableCell>
               </TableRow>
             ))}
           </TableBody>

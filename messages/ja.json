@@ -67,7 +67,8 @@
     "description": "最新の学習セッションのログ。",
     "project": "プロジェクト",
     "date": "日付",
-    "duration": "期間"
+    "duration": "期間",
+    "durationValue": "{minutes} 分"
   },
   "StudyCharts": {
     "title": "学習の進捗",
