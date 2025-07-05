@@ -30,7 +30,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     },
     {
       href: '/projects',
-      label: t('qualifications'),
+      label: t('projects'),
       icon: BookMarked,
     },
   ];
