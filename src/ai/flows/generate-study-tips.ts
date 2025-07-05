@@ -21,7 +21,7 @@ const StudyTipsInputSchema = z.object({
 export type StudyTipsInput = z.infer<typeof StudyTipsInputSchema>;
 
 const StudyTipsOutputSchema = z.object({
-  studyTips: z.array(z.string()).describe('A list of personalized study tips.'),
+  studyTips: z.array(z.string()).length(3).describe('A list of exactly three personalized study tips.'),
 });
 export type StudyTipsOutput = z.infer<typeof StudyTipsOutputSchema>;
 
@@ -33,11 +33,11 @@ const prompt = ai.definePrompt({
   name: 'studyTipsPrompt',
   input: {schema: StudyTipsInputSchema},
   output: {schema: StudyTipsOutputSchema},
-  prompt: `You are an AI study assistant. You will generate personalized study tips based on the user's learning history. The tips should be actionable and help optimize the user's study schedule and improve their learning outcomes.
+  prompt: `You are an AI study assistant. You will generate three personalized study tips based on the user's learning history. The tips should be actionable and help optimize the user's study schedule and improve their learning outcomes.
 
 Learning History: {{{learningHistory}}}
 
-Here are some personalized study tips:`,
+Here are three personalized study tips:`,
 });
 
 const generateStudyTipsFlow = ai.defineFlow(
