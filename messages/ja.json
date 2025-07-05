@@ -1,3 +1,4 @@
+
 {
   "AuthForm": {
     "welcomeBack": "おかえりなさい",
@@ -18,7 +19,8 @@
     "signInLink": "サインイン",
     "emailRequired": "有効なメールアドレスを入力してください。",
     "passwordMinLength": "パスワードは8文字以上である必要があります。",
-    "invalidCredentials": "メールアドレスまたはパスワードが正しくありません。"
+    "invalidCredentials": "メールアドレスまたはパスワードが正しくありません。",
+    "googleSignInFailed": "Googleでのサインインに失敗しました。"
   },
   "LandingPage": {
     "srOnly": "StudyTrack",

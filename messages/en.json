@@ -1,3 +1,4 @@
+
 {
   "AuthForm": {
     "welcomeBack": "Welcome Back",
@@ -18,7 +19,8 @@
     "signInLink": "Sign in",
     "emailRequired": "Please enter a valid email address.",
     "passwordMinLength": "Password must be at least 8 characters.",
-    "invalidCredentials": "Invalid email or password."
+    "invalidCredentials": "Invalid email or password.",
+    "googleSignInFailed": "Failed to sign in with Google."
   },
   "LandingPage": {
     "srOnly": "StudyTrack",
