@@ -71,11 +71,11 @@
     "duration": "期間"
   },
   "StudyCharts": {
-    "title": "学習チャート",
+    "title": "学習の進捗",
     "description": "学習習慣を時系列で視覚化します。",
-    "daily": "毎日",
-    "weekly": "毎週",
-    "monthly": "毎月"
+    "daily": "日",
+    "weekly": "週",
+    "monthly": "月"
   },
   "StudyTimer": {
     "title": "学習タイマー",

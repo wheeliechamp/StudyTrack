@@ -71,11 +71,11 @@
     "duration": "Duration"
   },
   "StudyCharts": {
-    "title": "Study Chart",
+    "title": "Study Progress",
     "description": "Visualize your study habits over time.",
-    "daily": "Daily",
-    "weekly": "Weekly",
-    "monthly": "Monthly"
+    "daily": "Day",
+    "weekly": "Week",
+    "monthly": "Month"
   },
   "StudyTimer": {
     "title": "Study Timer",
