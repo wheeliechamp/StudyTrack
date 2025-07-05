@@ -33,8 +33,7 @@
   },
   "AppLayout": {
     "dashboard": "Dashboard",
-    "projects": "Projects",
-    "appName": "StudyTrack"
+    "projects": "Projects"
   },
   "Header": {
     "searchPlaceholder": "Search projects...",
@@ -45,7 +44,7 @@
     "toggleUserMenu": "Toggle user menu"
   },
   "AiStudyTips": {
-    "title": "AI Study Tips",
+    "title": "Study Tips",
     "description": "Get personalized tips to optimize your study schedule based on your recent activity.",
     "tip": "Tip #{index}",
     "generating": "Generating...",

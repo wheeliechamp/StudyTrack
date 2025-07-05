@@ -33,8 +33,7 @@
   },
   "AppLayout": {
     "dashboard": "ダッシュボード",
-    "projects": "プロジェクト",
-    "appName": "StudyTrack"
+    "projects": "プロジェクト"
   },
   "Header": {
     "searchPlaceholder": "プロジェクトを検索...",
@@ -45,7 +44,7 @@
     "toggleUserMenu": "ユーザーメニューの切り替え"
   },
   "AiStudyTips": {
-    "title": "AI学習のヒント",
+    "title": "学習のヒント",
     "description": "最近のアクティビティに基づいて、学習スケジュールを最適化するためのパーソナライズされたヒントを入手してください。",
     "tip": "ヒント #{index}",
     "generating": "生成中...",

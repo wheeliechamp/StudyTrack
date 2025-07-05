@@ -27,7 +27,7 @@ export function AiStudyTips() {
   const [state, formAction] = useActionState(getAiStudyTips, initialState);
 
   // A mock summary of learning history. In a real app, this would be dynamically generated.
-  const mockLearningHistory = "User has studied 'Cloud Concepts' for 120 minutes, 'Security and Compliance' for 90 minutes, and 'Project Management' for 200 minutes over the last week. Performance on Cloud Concepts is strong, but time spent on Project Management yields lower scores on practice tests.";
+  const mockLearningHistory = "User has studied 'AWS Cloud Learning' for 120 minutes, and 'Project Management Study' for 200 minutes over the last week. Performance on AWS Cloud Learning is strong, but time spent on Project Management yields lower scores on practice tests.";
 
   return (
     <Card>
