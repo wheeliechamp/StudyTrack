@@ -34,6 +34,7 @@
     "privacy": "Privacy"
   },
   "AppLayout": {
+    "appName": "StudyTrack",
     "dashboard": "Dashboard",
     "projects": "Projects"
   },

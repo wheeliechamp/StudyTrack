@@ -3,13 +3,16 @@ import {getMessages, unstable_setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {locales} from '@/navigation';
  
+export const dynamic = 'force-dynamic';
+ 
 export default async function LocaleLayout({
   children,
-  params: {locale}
+  params
 }: {
   children: React.ReactNode;
   params: {locale: string};
 }) {
+  const locale = params.locale;
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) notFound();
  

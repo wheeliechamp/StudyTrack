@@ -1,5 +1,7 @@
 'use client';
 
+'use client';
+
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { PlusCircle, Edit, Trash2 } from 'lucide-react';
@@ -12,6 +14,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import type { Project } from '@/lib/types';
+import { addProject } from '@/app/actions';
 
 type ProjectManagerProps = {
   initialProjects: Project[];
@@ -22,20 +25,17 @@ export function ProjectManager({ initialProjects }: ProjectManagerProps) {
   const [open, setOpen] = useState(false);
   const t = useTranslations('ProjectManager');
 
-  const handleAddProject = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleAddProject = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const name = formData.get('name') as string;
-    const description = formData.get('description') as string;
 
-    if (name) {
-      const newProject: Project = {
-        id: `p${projects.length + 1}`,
-        name,
-        description,
-      };
-      setProjects([...projects, newProject]);
+    const result = await addProject(formData);
+
+    if (result.success) {
       setOpen(false);
+    } else {
+      console.error('Failed to add project:', result.error);
+      // Optionally, show an error message to the user
     }
   };
 
@@ -75,7 +75,7 @@ export function ProjectManager({ initialProjects }: ProjectManagerProps) {
       </CardHeader>
       <CardContent>
         <Accordion type="multiple" className="w-full">
-          {projects.map((proj) => (
+          {initialProjects.map((proj) => (
             <AccordionItem value={proj.id} key={proj.id}>
               <AccordionTrigger>
                 <div className="flex justify-between w-full pr-4 items-center">

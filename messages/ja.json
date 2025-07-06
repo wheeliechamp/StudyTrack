@@ -34,6 +34,7 @@
     "privacy": "プライバシー"
   },
   "AppLayout": {
+    "appName": "StudyTrack",
     "dashboard": "ダッシュボード",
     "projects": "プロジェクト"
   },
@@ -101,5 +102,9 @@
     "title": "「{query}」の検索結果",
     "noResults": "プロジェクトが見つかりませんでした",
     "noResultsDescription": "「{query}」に一致するプロジェクトはありませんでした。別のキーワードでお試しください。"
+  },
+  "DashboardPage": {
+    "title": "ダッシュボード",
+    "description": "学習の進捗とプロジェクトの概要。"
   }
 }

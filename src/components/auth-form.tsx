@@ -7,8 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link, useRouter } from "@/navigation";
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import { supabase } from '@/lib/supabase';
 
 import { Button } from "@/components/ui/button";
 import {
@@ -59,24 +58,36 @@ export function AuthForm({ type }: AuthFormProps) {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setAuthError(null);
-    if (type === 'login') {
-      if (values.email === 'test@example.com' && values.password === 'password123') {
-        router.push('/dashboard');
+    try {
+      if (type === 'login') {
+        const { error } = await supabase.auth.signInWithPassword({
+          email: values.email,
+          password: values.password,
+        });
+        if (error) throw error;
       } else {
-        setAuthError(t('invalidCredentials'));
+        const { error } = await supabase.auth.signUp({
+          email: values.email,
+          password: values.password,
+        });
+        if (error) throw error;
       }
-    } else {
-      // For signup, just redirect to dashboard on successful submission
       router.push('/dashboard');
+    } catch (error: any) {
+      setAuthError(error.message);
     }
   }
 
   const handleGoogleSignIn = async () => {
     setAuthError(null);
-    const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
-      router.push('/dashboard');
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: window.location.origin + '/dashboard',
+        },
+      });
+      if (error) throw error;
     } catch (error) {
       console.error("Google sign-in error", error);
       setAuthError(t('googleSignInFailed'));

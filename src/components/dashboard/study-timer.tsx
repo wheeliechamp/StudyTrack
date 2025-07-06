@@ -10,6 +10,7 @@ import type { Project } from '@/lib/types';
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
 import { Command, CommandInput, CommandEmpty, CommandGroup, CommandItem, CommandList } from '@/components/ui/command';
 import { cn } from '@/lib/utils';
+import { saveStudySession } from '@/app/actions';
 
 
 type StudyTimerProps = {
@@ -45,10 +46,16 @@ export function StudyTimer({ projects }: StudyTimerProps) {
     setIsActive(false);
   };
 
-  const handleStop = () => {
+  const handleStop = async () => {
     setIsActive(false);
-    // Here you would typically save the session
-    console.log(`Session ended. Duration: ${time} seconds for project ${selectedProject?.name}`);
+    if (selectedProject && time > 0) {
+      const result = await saveStudySession(selectedProject.id, time);
+      if (result.success) {
+        console.log('Study session saved successfully!');
+      } else {
+        console.error('Failed to save study session:', result.error);
+      }
+    }
     setTime(0);
   };
 
@@ -136,3 +143,4 @@ export function StudyTimer({ projects }: StudyTimerProps) {
     </Card>
   );
 }
+
