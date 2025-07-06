@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/lib/supabase/server';
 import { ProjectManager } from '@/components/dashboard/project-manager';
 import { StudyTimer } from '@/components/dashboard/study-timer';
 import { RecentActivity } from '@/components/dashboard/recent-activity';
@@ -10,6 +10,7 @@ import { getRecentSessions } from '@/lib/data';
 
 export default async function DashboardPage() {
   
+  const supabase = createClient();
   const { data: projects, error: projectsError } = await supabase.from('projects').select('*');
   const recentSessions = await getRecentSessions();
 

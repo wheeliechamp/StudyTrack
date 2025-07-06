@@ -1,0 +1,12 @@
+feat: Supabaseとのプロジェクトおよび学習セッション永続化の統合
+
+このコミットでは、以下の変更を導入します。
+
+- プロジェクト作成と学習セッションのログをSupabaseに記録するための`addProject`および`saveStudySession`サーバーアクションを`src/app/actions.ts`に実装しました。
+- 新しい`addProject`サーバーアクションを使用するように`src/components/dashboard/project-manager.tsx`を更新しました。
+- 新しい`saveStudySession`サーバーアクションを使用するように`src/components/dashboard/study-timer.tsx`を更新しました。
+- モックデータではなくSupabaseからプロジェクトおよび学習セッションデータを取得するように`src/lib/data.ts`を修正しました。
+- Supabaseからデータを取得し、新しいコンポーネントを統合しながら以前のダッシュボードレイアウトを復元するように`src/app/(app)/dashboard/page.tsx`および`src/app/[locale]/(app)/dashboard/page.tsx`を調整しました。
+- `src/i18n.ts`の`headers()`関連のエラーを、非同期コンテキストで`headers()`を明示的に呼び出すことで修正しました。
+- `messages/ja.json`に不足していた`DashboardPage`の翻訳キーを追加しました。
+- `'use client';`ディレクティブを追加することで、`src/components/dashboard/study-timer.tsx`で`useState`が正しく使用されるようにしました。

@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link, useRouter } from "@/navigation";
-import { supabase } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase/client';
 
 import { Button } from "@/components/ui/button";
 import {

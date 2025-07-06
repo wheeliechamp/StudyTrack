@@ -1,7 +1,8 @@
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/lib/supabase/server';
 import type { Project, StudySession } from '@/lib/types';
 
 export async function getProjects(): Promise<Project[]> {
+  const supabase = createClient();
   const { data, error } = await supabase.from('projects').select('*');
   if (error) {
     console.error('Error fetching projects:', error);
@@ -11,6 +12,7 @@ export async function getProjects(): Promise<Project[]> {
 }
 
 export async function getRecentSessions(): Promise<StudySession[]> {
+  const supabase = createClient();
   const { data, error } = await supabase.from('study_sessions').select('*').order('date', { ascending: false }).limit(5);
   if (error) {
     console.error('Error fetching recent sessions:', error);
@@ -20,6 +22,7 @@ export async function getRecentSessions(): Promise<StudySession[]> {
 }
 
 export async function searchProjects(query: string): Promise<Project[]> {
+  const supabase = createClient();
   const { data, error } = await supabase
     .from('projects')
     .select('*')

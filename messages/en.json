@@ -55,15 +55,24 @@
     "error": "An unknown error occurred."
   },
   "ProjectManager": {
-    "title": "Manage Projects",
-    "description": "Add, edit, or remove your projects and their descriptions.",
+    "title": "Projects",
+    "description": "Manage your study projects.",
     "addProject": "Add Project",
     "dialogTitle": "Add New Project",
-    "dialogDescription": "Enter the name of the project and an optional description.",
+    "dialogDescription": "Enter the details for your new study project.",
     "projectNameLabel": "Project Name",
-    "projectNamePlaceholder": "e.g., New Website Launch",
-    "descriptionLabel": "Description (Optional)",
-    "descriptionPlaceholder": "e.g., A project to launch a new website for a client."
+    "projectNamePlaceholder": "e.g., Web Development Basics",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "e.g., Learning HTML, CSS, and JavaScript fundamentals.",
+    "editDialogTitle": "Edit Project",
+    "editDialogDescription": "Update the details for your project.",
+    "updateProject": "Update Project"
+  },
+  "errors": {
+    "projectNameRequired": "Project name is required.",
+    "userNotAuthenticated": "User not authenticated. Please log in.",
+    "projectAlreadyExists": "A project with this name already exists.",
+    "databaseError": "A database error occurred. Please try again later."
   },
   "RecentActivity": {
     "title": "Recent Activity",

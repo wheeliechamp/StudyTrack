@@ -55,15 +55,24 @@
     "error": "不明なエラーが発生しました。"
   },
   "ProjectManager": {
-    "title": "プロジェクトの管理",
-    "description": "プロジェクトとその概要を追加、編集、または削除します。",
+    "title": "プロジェクト",
+    "description": "学習プロジェクトを管理します。",
     "addProject": "プロジェクトを追加",
     "dialogTitle": "新しいプロジェクトを追加",
-    "dialogDescription": "プロジェクトの名前と、任意で概要を入力してください。",
+    "dialogDescription": "新しい学習プロジェクトの詳細を入力してください。",
     "projectNameLabel": "プロジェクト名",
-    "projectNamePlaceholder": "例：新規Webアプリ開発",
-    "descriptionLabel": "概要（任意）",
-    "descriptionPlaceholder": "例：クライアント向けの新しいウェブサイトを立ち上げるプロジェクト。"
+    "projectNamePlaceholder": "例：Web開発の基礎",
+    "descriptionLabel": "説明",
+    "descriptionPlaceholder": "例：HTML、CSS、JavaScriptの基本を学習する。",
+    "editDialogTitle": "プロジェクトを編集",
+    "editDialogDescription": "プロジェクトの詳細を更新します。",
+    "updateProject": "プロジェクトを更新",
+    "errors": {
+      "projectNameRequired": "プロジェクト名は必須です。",
+      "userNotAuthenticated": "ユーザーが認証されていません。ログインしてください。",
+      "projectAlreadyExists": "この名前のプロジェクトはすでに存在します。",
+      "databaseError": "データベースエラーが発生しました。後でもう一度お試しください。"
+    }
   },
   "RecentActivity": {
     "title": "最近のアクティビティ",
